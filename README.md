@@ -34,8 +34,8 @@ Designer partners and good coding practices:
 
 The architecture of the proposed solution follows the **Hexagonal Architecture** concept. The design is based on two books:
 
-  - [https://www.amazon.com/dp/B00HUEG8KK/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1](Functional Programming Patterns in Scala and Clojure: Write Lean Programs for the JVM)
-  - [https://www.amazon.com/dp/B075Z2CMRX/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1](Scala Design Patterns)
+  - [Functional Programming Patterns in Scala and Clojure](https://www.amazon.com/dp/B00HUEG8KK);
+  - [Scala Design Patterns](https://www.amazon.com/dp/B075Z2CMRX).
  
 Example Diagram of a Hexagonal Architecture:
 
