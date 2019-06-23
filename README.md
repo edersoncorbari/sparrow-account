@@ -1,5 +1,6 @@
 # Sparrow Account 0.1
-[![N|Solid](img/aa.png)](https://aa.com.br)
+![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/jack-sparrow.png)
+“Not all treasure is silver and gold, mate.”
 ## A small micro-service developed in Scala using Hexagonal Architecture
 
 This is a fictional project used for studies in my laboratory using Scala language, with a focus on micro services.
@@ -18,15 +19,16 @@ Requirements:
   - It must not be possible to withdraw money for a given user when they don't have enough balance;
   - You should take concurrency issues into consideration;
   - Store data in memory;
-  - You should pay homage to Jack Sparrow - “Not all treasure is silver and gold, mate.”
+  - You should pay homage to Jack Sparrow.
 
-Things we're looking for:
+Designer partners and good coding practices:
 
   - Immutability;
   - Separation of concerns;
   - Unit and integration tests;
   - API design;
-  - Error handling.
+  - Error handling;
+  - Language idiomatic use.
 
 ## 1 Proposed Solution
 
@@ -37,11 +39,11 @@ The architecture of the proposed solution follows the **Hexagonal Architecture**
  
 Example Diagram of a Hexagonal Architecture:
 
-![A](img/ports-and-adapters.png)
+![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/ports-and-adapters.png)
 
 Organization Application Package Diagram:
 
-![A](img/sparrow-account-pkg.png)
+![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/sparrow-account-pkg.png)
 
 Organization of Project Directories:
 
