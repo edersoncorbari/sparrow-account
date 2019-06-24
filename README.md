@@ -297,7 +297,7 @@ $ curl -i -H "Content-Type: application/json" -X GET http://127.0.0.1:8080/balan
 
 > {"uuid":"1","amount":32.44}
 
-If necessary, you can change the host and port configuration of the server. This can be checked at: [src/main/resources/application.conf](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/resources/application.conf)
+If necessary, you can change the host and port configuration of the server. This can be checked at:  [src/main/resources/application.conf](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/resources/application.conf)
 
 ### 3.4 Integration Test
 
@@ -317,6 +317,6 @@ $ docker container ls
 $ docker stop <CONTAINER-ID>
 ```
 
-> Note: This application was developed using a FreeBSD 11.2 machine and using a virtual machine with Ubuntu 18.04.2 LTS for testing.
+> Note: This application was developed using a *FreeBSD 11.2* machine and using a virtual machine with *Ubuntu 18.04.2 LTS* for testing.
 
 **Enjoy with moderation**
