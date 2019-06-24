@@ -19,7 +19,7 @@ class ConfigPropertySpec extends FlatSpec with Matchers {
       conf.getInt("maxConcurrentRequests"),
       conf.getInt("maxWaiters"))
 
-    serverConf.name shouldEqual "Sparrow HTTP Server"
+    serverConf.name shouldEqual "Jack Sparrow HTTP Server"
     serverConf.host shouldEqual "0.0.0.0"
     serverConf.port shouldEqual 8080
     serverConf.maxConcurrentRequests shouldEqual 400
