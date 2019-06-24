@@ -92,15 +92,15 @@ The EndPoints available on the server:
 
 Piece of code of the routes with the endpoints: [src/main/scala/sparrow/account/Routes.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/Routes.scala)
 ```scala
-  final val fillAccount: Endpoint[Account] =
-    post("account" :: jsonBody[AccountFillRequest]) {req: AccountFillRequest =>
-      for {
-        r <- accountService.fillAccount(req.uuid, req.amount)
-      } yield r match {
-        case Right(a) => Ok(a)
-        case Left(m) => BadRequest(m)
-      }
+final val fillAccount: Endpoint[Account] =
+  post("account" :: jsonBody[AccountFillRequest]) {req: AccountFillRequest =>
+    for {
+      r <- accountService.fillAccount(req.uuid, req.amount)
+    } yield r match {
+      case Right(a) => Ok(a)
+      case Left(m) => BadRequest(m)
     }
+  }
 ```
 
 There are two endpoints (**fillAccount**) that can create an account and deposit a value, as well as can withdraw using the negative value. And the endpoint (**balanceAccount**) to see the balance available to the user.
@@ -113,25 +113,25 @@ The **ScalaSTM** was used to store the data in memory and control of the concurr
   
 Piece of code where atomicity is used: [src/main/scala/sparrow/account/controller/AccountController.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/controller/AccountController.scala)
 ```scala
-  override def fillAccount(uuid: String, amount: Double): Future[Either[AccountFillException, AccountTransaction]] = Future {
-    if (accounts.get(uuid).isEmpty) createAccount(uuid, 0)
+override def fillAccount(uuid: String, amount: Double): Future[Either[AccountFillException, AccountTransaction]] = Future {
+  if (accounts.get(uuid).isEmpty) createAccount(uuid, 0)
 
-    accounts.get(uuid) match {
-      case Some(transact) => {
-        atomic {implicit tx =>
-          transact() = AccountTransaction(transact().uuid, transact().amount + amount)
+  accounts.get(uuid) match {
+    case Some(transact) => {
+      atomic {implicit tx =>
+        transact() = AccountTransaction(transact().uuid, transact().amount + amount)
 
-          displayOperationType(transact().uuid, transact().amount)
+        displayOperationType(transact().uuid, transact().amount)
 
-          if (amountIsNegative(transact().amount))
-            transact() = AccountTransaction(transact().uuid, transact().amount - amount)
+        if (amountIsNegative(transact().amount))
+          transact() = AccountTransaction(transact().uuid, transact().amount - amount)
 
-          Right(transact())
-        }
+        Right(transact())
       }
-      case _ => Left(AccountFillException("Fill account not found."))
     }
+    case _ => Left(AccountFillException("Fill account not found."))
   }
+}
 ```
 
 #### 1.3 Other Tools Used
@@ -222,10 +222,10 @@ $ export PATH=/opt/sbt/bin:${PATH}
 
 ### 3.2 Building and Testing Sparrow-Account Application
 
-To build the application just unzip the directory:
+To build the application just run:
 
 ```sh
-$ tar xfv sparrow-account-source-v0.1.tar.gz && cd sparrow-account
+$ git clone https://github.com/edersoncorbari/sparrow-account.git
 $ sbt compile
 $ sbt test
 $ sbt run
@@ -297,7 +297,7 @@ $ curl -i -H "Content-Type: application/json" -X GET http://127.0.0.1:8080/balan
 
 > {"uuid":"1","amount":32.44}
 
-If necessary, you can change the host and port configuration of the server. This can be checked at: [src/main/resources/application.conf](../src/main/resources/application.conf)
+If necessary, you can change the host and port configuration of the server. This can be checked at: [src/main/resources/application.conf](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/resources/application.conf)
 
 ### 3.4 Integration Test
 
