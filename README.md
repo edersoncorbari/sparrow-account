@@ -28,7 +28,8 @@ Designer partners and good coding practices:
   - Unit and integration tests;
   - API design;
   - Error handling;
-  - Language idiomatic use.
+  - Language idiomatic use;
+  - Use functional programming paradigm.
 
 ## 1 Proposed Solution
 
