@@ -3,13 +3,13 @@
 “Not all treasure is silver and gold, mate.”
 ## A small micro-service developed in Scala using Hexagonal Architecture
 
-This is a fictional project used for studies in my laboratory using Scala language, with a focus on micro services.
+This is a fictional project used for studies in my laboratory using **Scala** Language, with a focus on micro-services.
 
-Project Owner Requirements:
+**Project Owner Requirements:**
 
-Create a micro service that checks and creates a hypothetical bank account.
+Create a micro-service that checks and creates a hypothetical bank account.
 
-It must comprise a HTTP Server with two endpoints:
+It must comprise a **HTTP** Server with two endpoints:
 
   - One to insert a new monetary transaction, money in or out, for a given user;
   - One to return a user's current balance.
@@ -67,20 +67,20 @@ To build a request and response Http Rest Server, **Finagle-Finch** was used:
 
 Piece of code where the server is used: [src/main/scala/sparrow/account/ServerApp.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/ServerApp.scala)
 ```scala
-  def runServer(): Unit = {
-    val app = Http
-      .server
-      .withLabel(serverConf.name)
-      .withAdmissionControl.concurrencyLimit(
-      maxConcurrentRequests = serverConf.maxConcurrentRequests,
-      maxWaiters = serverConf.maxWaiters
-    ).serve(s"${serverConf.host}:${serverConf.port}",
-    (Routes.balanceAccount :+: Routes.fillAccount).toService)
-    onExit {
-      app.close()
-    }
-    Await.ready(app)
+def runServer(): Unit = {
+  val app = Http
+    .server
+    .withLabel(serverConf.name)
+    .withAdmissionControl.concurrencyLimit(
+    maxConcurrentRequests = serverConf.maxConcurrentRequests,
+    maxWaiters = serverConf.maxWaiters
+  ).serve(s"${serverConf.host}:${serverConf.port}",
+  (Routes.balanceAccount :+: Routes.fillAccount).toService)
+  onExit {
+    app.close()
   }
+  Await.ready(app)
+}
 ```
 
 The EndPoints available on the server:
