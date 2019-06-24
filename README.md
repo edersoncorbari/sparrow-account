@@ -62,10 +62,10 @@ The language used to develop the challenge was **Scala**. Using the following te
 
 To build a request and response Http Rest Server, **Finagle-Finch** was used:
 
-  - [https://twitter.github.io/finagle/](https://twitter.github.io/finagle/)
-  - [https://finagle.github.io/finch/](https://finagle.github.io/finch/)
+  - [https://twitter.github.io/finagle/](https://twitter.github.io/finagle/);
+  - [https://finagle.github.io/finch/](https://finagle.github.io/finch/).
 
-Piece of code where the server is used:  [src/main/scala/sparrow/account/ServerApp.scala](../src/main/scala/sparrow/account/ServerApp.scala)
+Piece of code where the server is used: [src/main/scala/sparrow/account/ServerApp.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/ServerApp.scala)
 ```scala
   def runServer(): Unit = {
     val app = Http
@@ -90,7 +90,7 @@ The EndPoints available on the server:
 | POST | /account | *{"uuid":"1", "amount":100.50}* |
 | GET | /balance/<uuid> | *not required* |
 
-Piece of code of the routes with the endpoints: [src/main/scala/sparrow/account/Routes.scala](../src/main/scala/sparrow/account/Routes.scala)
+Piece of code of the routes with the endpoints: [src/main/scala/sparrow/account/Routes.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/Routes.scala)
 ```scala
   final val fillAccount: Endpoint[Account] =
     post("account" :: jsonBody[AccountFillRequest]) {req: AccountFillRequest =>
@@ -111,9 +111,9 @@ The **ScalaSTM** was used to store the data in memory and control of the concurr
 
   - [https://twitter.github.io/finagle/](https://nbronson.github.io/scala-stm/)
   
-Piece of code where atomicity is used:  [src/main/scala/sparrow/account/controller/AccountController.scala](../src/main/scala/sparrow/account/controller/AccountController.scala)
+Piece of code where atomicity is used: [src/main/scala/sparrow/account/controller/AccountController.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/controller/AccountController.scala)
 ```scala
-  override def fillAccount(uuid: String, amount: Double): Future[Either[Exception, AccountTransaction]] = Future {
+  override def fillAccount(uuid: String, amount: Double): Future[Either[AccountFillException, AccountTransaction]] = Future {
     if (accounts.get(uuid).isEmpty) createAccount(uuid, 0)
 
     accounts.get(uuid) match {
@@ -149,13 +149,15 @@ First, have the project folder unzipped on your machine and the terminal open.
 
 A **Docker** image has been generated that can be used for testing, so it is necessary to have the docker installed on your machine. 
 
-### 2.2 Using Docker
+### 2.2 Create Docker
 
-Download the docker image in the url below:
+Simply run the script:
 
-  - [http://AA](AA)
+```sh
+$ ./scripts/create-docker.sh
+```
 
-The current MD5 of this image (sparrow-account-docker-img-v0.1.tar.gz) is: **42c21f5516edd17e240d2f44fb154e48** 
+> Note: Please install docker in your Linux distribution.
 
 With docker already installed on your machine, load the image using the command:
 
@@ -184,6 +186,7 @@ $ ./scripts/curl-test.sh
 See more command curl information in item 3.3. More information on removing and stopping the docker image see item 4.
 
 ### 2.2 Local SBT and Java
+
 To build the project on the machine it is necessary to have the programs installed:
 
   - [JDK-1.8.0](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Java Development Kit
