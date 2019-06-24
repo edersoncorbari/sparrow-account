@@ -34,8 +34,8 @@ Designer partners and good coding practices:
 
 The architecture of the proposed solution follows the **Hexagonal Architecture** concept. The design is based on two books:
 
-  - [Functional Programming Patterns in Scala and Clojure](https://www.amazon.com/dp/B00HUEG8KK);
-  - [Scala Design Patterns](https://www.amazon.com/dp/B075Z2CMRX).
+  - [Functional Programming Patterns in Scala and Clojure](https://www.amazon.com/dp/B00HUEG8KK)
+  - [Scala Design Patterns](https://www.amazon.com/dp/B075Z2CMRX)
  
 Example Diagram of a Hexagonal Architecture:
 
@@ -62,8 +62,8 @@ The language used to develop the challenge was **Scala**. Using the following te
 
 To build a request and response Http Rest Server, **Finagle-Finch** was used:
 
-  - [https://twitter.github.io/finagle/](https://twitter.github.io/finagle/);
-  - [https://finagle.github.io/finch/](https://finagle.github.io/finch/).
+  - [https://twitter.github.io/finagle/](https://twitter.github.io/finagle/)
+  - [https://finagle.github.io/finch/](https://finagle.github.io/finch/)
 
 Piece of code where the server is used: [src/main/scala/sparrow/account/ServerApp.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/ServerApp.scala)
 ```scala
@@ -109,7 +109,7 @@ There are two endpoints (**fillAccount**) that can create an account and deposit
 
 The **ScalaSTM** was used to store the data in memory and control of the concurrency.
 
-  - [https://nbronson.github.io/scala-stm/)](https://nbronson.github.io/scala-stm/)
+  - [https://nbronson.github.io/scala-stm/](https://nbronson.github.io/scala-stm/)
   
 Piece of code where atomicity is used: [src/main/scala/sparrow/account/controller/AccountController.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/controller/AccountController.scala)
 ```scala
