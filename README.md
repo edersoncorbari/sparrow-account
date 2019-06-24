@@ -109,7 +109,7 @@ There are two endpoints (**fillAccount**) that can create an account and deposit
 
 The **ScalaSTM** was used to store the data in memory and control of the concurrency.
 
-  - [https://twitter.github.io/finagle/](https://nbronson.github.io/scala-stm/)
+  - [https://nbronson.github.io/scala-stm/)](https://nbronson.github.io/scala-stm/)
   
 Piece of code where atomicity is used: [src/main/scala/sparrow/account/controller/AccountController.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/controller/AccountController.scala)
 ```scala
