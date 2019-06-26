@@ -320,4 +320,4 @@ $ docker stop <CONTAINER-ID>
 
 > Note: This application was developed using a *FreeBSD 11.2* machine and using a virtual machine with *Ubuntu 18.04.2 LTS* for testing.
 
-**Enjoy with moderation**
+**Enjoy**
