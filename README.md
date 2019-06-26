@@ -1,5 +1,5 @@
 # Sparrow Account 0.1
-![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/jack-sparrow.png)
+![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/jack-sparrow-2.png)
 “Not all treasure is silver and gold, mate.”
 ## A small micro-service developed in Scala using Hexagonal Architecture
 
