@@ -1,4 +1,5 @@
-# Sparrow Account 0.1
+# Sparrow Account 0.1 [![Build Status](https://travis-ci.org/edersoncorbari/sparrow-account.svg?branch=master)](https://travis-ci.org/edersoncorbari/sparrow-account)
+
 ![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/jack-sparrow-2.png)
 “Not all treasure is silver and gold, mate.”
 ## A small micro-service developed in Scala using Hexagonal Architecture
