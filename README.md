@@ -45,7 +45,7 @@ Example Diagram of a Hexagonal Architecture:
 
 Organization Application Package Diagram:
 
-![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/sparrow-account-pkg.png)
+![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/sparrow-account-pkg-v2.png)
 
 Organization of Project Directories:
 
