@@ -33,6 +33,9 @@
 .Spotlight-V100
 .Trashes
 .idea
+.metals
+.bloop
+.project
 ehthumbs.db
 Thumbs.db
 
@@ -40,4 +43,5 @@ Thumbs.db
 ########################
 project/project/
 project/target/
+project/.bloop/
 target/
