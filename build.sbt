@@ -2,6 +2,8 @@ name := "sparrow-account"
 version := "0.1"
 scalaVersion := "2.12.8"
 
+scalacOptions ++= Seq("-deprecation", "-feature")
+logLevel := Level.Error
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies ++= Seq(

@@ -11,26 +11,31 @@ function put-line() {
 
 function add-fill-account() {
   put-line
-  cmd="curl -i -H \"Content-Type: application/json\" -X POST -d '{\"uuid\":\"${USER}\", \"amount\":${AMOUNT}}' http://${HOST}:${PORT}/account"
+  cmd="curl -i -H \"Content-Type: application/json\" -X POST -d \
+	  '{\"uuid\":\"${USER}\", \"amount\":${AMOUNT}}' http://${HOST}:${PORT}/account"
   echo "${cmd}" && echo
   eval "${cmd}" && echo 
 }
 
 function get-balance-account() {
   put-line
-  cmd="curl -i -H \"Content-Type: application/json\" -X GET http://${HOST}:${PORT}/balance/${USER}"
+  cmd="curl -i -H \"Content-Type: application/json\" -X GET \
+	  http://${HOST}:${PORT}/balance/${USER}"
   echo "${cmd}" && echo
   eval "${cmd}" && echo 
 }
 
 function rm-fill-account() {
   put-line
-  cmd="curl -i -H \"Content-Type: application/json\" -X POST -d '{\"uuid\":\"${USER}\", \"amount\":-${AMOUNT}}' http://${HOST}:${PORT}/account"
+  cmd="curl -i -H \"Content-Type: application/json\" -X POST -d \
+	  '{\"uuid\":\"${USER}\", \"amount\":-${AMOUNT}}' http://${HOST}:${PORT}/account"
   echo "${cmd}" && echo
   eval "${cmd}" && echo 
 }
 
-[[ "$(command -v curl)" ]] || { echo "Sorry! Command (curl) is not installed...." 1>&2 && exit -1; }
+[[ "$(command -v curl)" ]] || { 
+  echo "Sorry! Command (curl) is not installed...." 1>&2 && exit -1; 
+}
 
 add-fill-account &&
 get-balance-account &&

@@ -1,6 +1,6 @@
 # Sparrow Account 0.1 [![Build Status](https://travis-ci.org/edersoncorbari/sparrow-account.svg?branch=master)](https://travis-ci.org/edersoncorbari/sparrow-account)
 
-![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/jack-sparrow-2.png)
+![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/jack-sparrow.png)
 “Not all treasure is silver and gold, mate.”
 ## A small micro-service developed in Scala using Hexagonal Architecture
 
@@ -45,7 +45,7 @@ Example Diagram of a Hexagonal Architecture:
 
 Organization Application Package Diagram:
 
-![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/sparrow-account-pkg-v2.png)
+![](https://raw.githubusercontent.com/edersoncorbari/sparrow-account/master/doc/img/sparrow-account-pkg.png)
 
 Organization of Project Directories:
 
@@ -161,16 +161,16 @@ $ ./scripts/create-docker.sh
 
 > Note: Please install docker in your Linux distribution.
 
-With docker already installed on your machine, load the image using the command:
+With docker already installed on your machine, list docker images using the command:
 
 ```sh
-$ zcat sparrow-account-docker-img-v0.1.tar.gz | docker load
+$ docker images
 ```
 
 Start docker with the image to do the tests:
 
 ```sh
-$  docker run -p 8080:8080 sparrow-account:v0.1
+$ docker run -p 8080:8080 sparrow-account:v0.1
 ```
 
 Docker will run the unit tests and then start the server. Wait until the server loads the message:
@@ -185,7 +185,7 @@ $ cd sparrow-account
 $ ./scripts/curl-test.sh
 ```
 
-See more command curl information in item 3.3. More information on removing and stopping the docker image see item 4.
+> Note: See more command curl information in item 3.3, to run the integrated tests, see item 3.4. More information on removing and stopping the docker image see item 4.
 
 ### 2.2 Local SBT and Java
 
@@ -222,15 +222,15 @@ $ sudo mv sbt /opt/sbt
 $ export PATH=/opt/sbt/bin:${PATH}
 ```
 
+> Note: You can also use OpenJDK, find out how to install OpenJDK in your distribution.
+
 ### 3.2 Building and Testing Sparrow-Account Application
 
 To build the application just run:
 
 ```sh
 $ git clone https://github.com/edersoncorbari/sparrow-account.git
-$ sbt compile
-$ sbt test
-$ sbt run
+$ sbt compile; sbt test; sbt run
 ```
 
 When you receive the message on the terminal after the *sbt run*:
@@ -317,6 +317,13 @@ Stop the docker image:
 ```sh
 $ docker container ls
 $ docker stop <CONTAINER-ID>
+```
+
+Remove the docker image:
+
+```sh
+$ docker images
+$ docker rmi -f <IMAGE-ID>
 ```
 
 > Note: This application was developed using a *FreeBSD 11.2* machine and using a virtual machine with *Ubuntu 18.04.2 LTS* for testing.
