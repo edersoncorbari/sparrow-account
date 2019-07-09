@@ -239,6 +239,12 @@ You can also run unit tests like this:
 $ sbt clean coverage test coverageReport
 ```
 
+Checking the [ScalaStyle](http://www.scalastyle.org/) code:
+
+```sh
+$ sbt scalastyle
+```
+
 When you receive the message on the terminal after the *sbt run*:
 
 > *** Stating Jack Sparrow HTTP Server ****

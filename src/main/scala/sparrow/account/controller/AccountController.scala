@@ -32,8 +32,9 @@ class AccountController extends AccountOperation with AccountValidation with Acc
 
           displayOperationType(transact().uuid, transact().amount)
 
-          if (amountIsNegative(transact().amount))
+          if (amountIsNegative(transact().amount)) {
             transact() = AccountTransaction(transact().uuid, transact().amount - amount)
+          }
 
           Right(transact())
         }

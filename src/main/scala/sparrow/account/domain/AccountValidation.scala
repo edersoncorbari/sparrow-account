@@ -1,6 +1,8 @@
 package sparrow.account.domain
 
-trait AccountValidation {
+import wvlet.log.LogSupport
+
+trait AccountValidation extends LogSupport {
 
   lazy val zeroOrGreater = (amount: Double) => amount match {
     case amount if amount < 0 => 0
@@ -13,9 +15,9 @@ trait AccountValidation {
   }
 
   lazy val displayOperationType = (uuid: String, amount: Double) => amount match {
-    case amount if amount > 0 => println(s"Deposit for: ${uuid} in the amount of: ${amount}")
-    case amount if amount < 0 => println(s"Withdraw for: ${uuid} in the amount of: ${amount}")
-    case _ => println(s"Zero for: ${uuid} in the amount of: ${amount}")
+    case amount if amount > 0 => info(s"Deposit for: ${uuid} in the amount of: ${amount}")
+    case amount if amount < 0 => info(s"Withdraw for: ${uuid} in the amount of: ${amount}")
+    case _ => info(s"Zero for: ${uuid} in the amount of: ${amount}")
   }
 
 }

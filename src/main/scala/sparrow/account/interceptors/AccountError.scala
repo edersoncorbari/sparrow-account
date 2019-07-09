@@ -1,6 +1,7 @@
 package sparrow.account.interceptors
 
 trait AccountError {
+
   final case class AccountCreateException(msg: String, cause: Option[Throwable] = None)
     extends Exception(msg, cause.orNull)
 
@@ -9,4 +10,5 @@ trait AccountError {
 
   final case class AccountMoneyException(msg: String, cause: Option[Throwable] = None)
     extends Exception(msg, cause.orNull)
+
 }

@@ -6,6 +6,7 @@ import io.finch.circe._
 import io.finch.syntax._
 
 object Routes {
+
   import sparrow.account.model.{AccountTransaction, AccountFillRequest}
   import sparrow.account.controller.AccountController
   private lazy val accountController = AccountController()

@@ -3,20 +3,14 @@ package sparrow.account
 import com.twitter.server.TwitterServer
 import com.twitter.finagle.Http
 import com.twitter.util.Await
-import com.typesafe.config.ConfigFactory
 import io.circe.generic.auto._
 import io.finch.circe._
+import wvlet.log.LogSupport
+import sparrow.account.domain.Config
 
-object ServerApp extends TwitterServer {
-  import sparrow.account.model.ConfigProperty.ServerConfig
-  private[this] lazy val loadConf = ConfigFactory.load().getConfig("sparrow.account.server")
-  private[this] lazy val serverConf = ServerConfig(loadConf.getString("name"),
-    loadConf.getString("host"),
-    loadConf.getInt("port"),
-    loadConf.getInt("maxConcurrentRequests"),
-    loadConf.getInt("maxWaiters"))
+class ServerImpl extends TwitterServer with Config {
 
-  def runServer(): Unit = {
+  def run(): Unit = {
     val app = Http
       .server
       .withLabel(serverConf.name)
@@ -32,12 +26,15 @@ object ServerApp extends TwitterServer {
 
     Await.ready(app)
   }
+}
 
-  def main(): Unit = {
-    val greeting = () => {s"*** Stating ${serverConf.name} ****"}
-    val info = () => {s"Host: ${serverConf.host} Port: ${serverConf.port}"}
-    println(greeting() + "\n" + info())
+object ServerApp extends LogSupport with Config {
 
-    runServer()
+  def main(args: Array[String]): Unit = {
+    val greeting = () => {s"*** Stating ${serverConf.name} ****\n"}
+    val address = () => {s"Host: ${serverConf.host} Port: ${serverConf.port}"}
+
+    info(s"${greeting()}${address()}")
+    new ServerImpl().run()
   }
 }

@@ -8,6 +8,8 @@ coverageMinimum := 50
 coverageFailOnMinimum := false
 coverageHighlighting := true
 
+scalastyleConfig := baseDirectory.value / "project/scalastyle-config.xml"
+
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
 logLevel := Level.Error
@@ -21,6 +23,8 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser" % "0.11.1",
   "com.typesafe" % "config" % "1.3.4",
   "org.scala-stm" %% "scala-stm" % "0.9.1",
+  "org.slf4j" % "slf4j-jdk14" % "1.7.21",
+  "org.wvlet.airframe" %% "airframe-log" % "19.7.2",
   "org.scalatest" %% "scalatest" % "3.0.7" % Test,
 )
 
