@@ -69,7 +69,7 @@ To build a request and response Http Rest Server, **Finagle-Finch** was used:
 
 Piece of code where the server is used: [src/main/scala/sparrow/account/ServerApp.scala](https://github.com/edersoncorbari/sparrow-account/blob/master/src/main/scala/sparrow/account/ServerApp.scala)
 ```scala
-def runServer(): Unit = {
+def run(): Unit = {
   val app = Http
     .server
     .withLabel(serverConf.name)
