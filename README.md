@@ -125,8 +125,9 @@ override def fillAccount(uuid: String, amount: Double): Future[Either[AccountFil
 
         displayOperationType(transact().uuid, transact().amount)
 
-        if (amountIsNegative(transact().amount))
+        if (amountIsNegative(transact().amount)) {
           transact() = AccountTransaction(transact().uuid, transact().amount - amount)
+        }
 
         Right(transact())
       }
