@@ -1,10 +1,16 @@
 name := "sparrow-account"
+organization := "io.github.edersoncorbari"
 version := "0.1"
 scalaVersion := "2.12.8"
+licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
-scalacOptions ++= Seq("-deprecation", "-feature")
+coverageMinimum := 50
+coverageFailOnMinimum := false
+coverageHighlighting := true
+
+javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
+scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
 logLevel := Level.Error
-resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies ++= Seq(
   "com.twitter" %% "twitter-server" % "19.1.0",
@@ -19,11 +25,8 @@ libraryDependencies ++= Seq(
 )
 
 val meta = """META.INF(.)*""".r
-
 assemblyMergeStrategy in assembly := {
   case "BUILD" => MergeStrategy.discard
   case meta(_)  => MergeStrategy.discard
   case other => MergeStrategy.defaultMergeStrategy(other)
 }
-
-(sourceDirectories in Test) := Seq(new File("src/test/scala/sparrow/account/unit/"))

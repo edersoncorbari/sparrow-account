@@ -233,6 +233,12 @@ $ git clone https://github.com/edersoncorbari/sparrow-account.git
 $ sbt compile; sbt test; sbt run
 ```
 
+You can also run unit tests like this:
+
+```sh
+$ sbt clean coverage test coverageReport
+```
+
 When you receive the message on the terminal after the *sbt run*:
 
 > *** Stating Jack Sparrow HTTP Server ****
