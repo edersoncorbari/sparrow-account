@@ -4,6 +4,10 @@
 “Not all treasure is silver and gold, mate.”
 ## A small micro-service developed in Scala using Hexagonal Architecture
 
+This article was published in:
+
+ * [https://dzone.com/articles/a-small-micro-service-developed-in-scala-using-hex](https://dzone.com/articles/a-small-micro-service-developed-in-scala-using-hex)
+
 This is a fictional project used for studies in my laboratory using **Scala** Language, with a focus on micro-services.
 
 **Project Owner Requirements:**
